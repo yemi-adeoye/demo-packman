@@ -1,15 +1,12 @@
-// holds the image element in the html file
 const packmanImage = document.getElementById('packman-image');
-
 const packmanImages = {
     'ltr': ['images/ltr-open.png', 'images/ltr-closed.png'],
     'rtl': ['images/rtl-open.png', 'images/rtl-closed.png'],
 }
-
 let pos = { 'posX': 0, 'posY': 0 };
-
 let direction = 0;
 let toggle = 0;
+let distance = 5
 
 function getScreenWidth() {
     // returns the current width of the browser screen
@@ -103,6 +100,6 @@ setInterval(() => {
     direction = toggleDirection(packmanImage, pos.posX, direction);
     toggle = zeroOrOneToggler(toggle);
     setImage(packmanImage, packmanImages, direction, toggle);
-    moveX(packmanImage, pos, 10, direction);
+    moveX(packmanImage, pos, distance, direction);
     console.log(pos);
 }, 100);
